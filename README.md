@@ -27,9 +27,39 @@ To implement HASH ALGORITHM
 
 
 ## Program:
+~~~
+def simple_hash(message):
+    h = 0
 
+    for ch in message:
+        h = h ^ ord(ch)
+        h = h + ord(ch)
+
+    return h % 256
+
+
+print("HASH VERIFICATION ")
+
+message = input("Enter message: ")
+
+hash_value = simple_hash(message)
+
+print("Computed Hash Value:", format(hash_value, '02x'))
+
+received = input("Enter received hash: ")
+
+print("Checking Hash Value...")
+
+if format(hash_value, '02x') == received:
+    print("Hash Verification Successful")
+    print("Message is not changed")
+else:
+    print("Hash Verification Failed")
+    print("Message has been altered")
+~~~
 
 ## Output:
+<img width="1517" height="742" alt="Screenshot 2026-05-21 113817" src="https://github.com/user-attachments/assets/b8dc56c8-bede-41ff-be36-6b98779e1f14" />
 
 ## Result:
 The program is executed successfully.
